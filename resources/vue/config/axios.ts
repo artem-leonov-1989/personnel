@@ -1,6 +1,6 @@
 import axios, { AxiosInstance } from 'axios';
 
-const baseUrl: string = import.meta.env.BASE_URL;
+const baseUrl: string = import.meta.env.VITE_BASE_URL;
 
 axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 axios.defaults.withCredentials = true;
