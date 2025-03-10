@@ -14,9 +14,9 @@ export const useUserStore = defineStore('user', () => {
         return (user.value.name !== undefined);
     });
 
-    const getUserName:ComputedRef<string|undefined> = computed(() => {
+    const userName:ComputedRef<string|undefined> = computed(() => {
         return user.value.name;
     })
 
-    return {isAuth, getUserName};
+    return {isAuth, userName};
 });
