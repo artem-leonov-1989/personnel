@@ -8,19 +8,40 @@
         "sourceMap": true,
         "resolveJsonModule": true,
         "esModuleInterop": true,
-        "lib": ["DOM", "esnext"],
-        "types": ["node", "stripe-v3", "vite/client"],
+        "lib": [
+            "DOM",
+            "esnext"
+        ],
+        "types": [
+            "node",
+            "stripe-v3",
+            "vite/client"
+        ],
         "baseUrl": ".",
         "paths": {
-            "@/*": ["resources/vue/*"],
-            "~/*": ["resources/*"],
-        },
+            "@/*": [
+                "resources/vue/*"
+            ],
+            "~/*": [
+                "resources/*"
+            ]
+        }
     },
     "vueCompilerOptions": {
         "experimentalSuppressInvalidJsxElementTypeErrors": true
     },
     "include": [
-        "resources/**/*"
+        "resources/**/*",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts",
+        "node_modules/unplugin-auto-import/auto-imports.d.ts"
     ],
-    "exclude": ["public/**/*", "node_modules", "vendor"]
+    "exclude": [
+        "public/**/*",
+        "node_modules",
+        "vendor"
+    ],
 }

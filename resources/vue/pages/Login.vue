@@ -38,13 +38,14 @@ import {computed, ComputedRef, Ref, ref} from "vue";
 import {useUserStore} from "@/store/useUserStore";
 import {sanctumRequest, apiRequest} from "@/config/axios";
 import {ElMessage} from "element-plus";
+import router from "@/config/router";
 
 const loginForm = ref({
     login: '',
     password: ''
 })
 
-const user = useUserStore();
+const userStore = useUserStore();
 const authProcess: Ref<boolean> = ref(false);
 const login = () => {
     sanctumRequest.get('/sanctum/csrf-cookie').then(() => {
@@ -52,8 +53,8 @@ const login = () => {
             login: loginForm.value.login,
             password: loginForm.value.password
         }).then((response) => {
-            console.log(response);
-            // this.$router.push('/');
+            userStore.setUserName(response.data.name);
+            router.push('/');
         }).catch((error) => {
             if (error.response) {
                 if (error.response.status === 401 || error.response.status === 422) {

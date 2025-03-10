@@ -1,22 +1,24 @@
 import {defineStore} from "pinia";
-import {computed, ComputedRef, ref, Ref} from "vue";
+import {ref, computed, Ref, ComputedRef} from "vue";
 
 interface UserStore {
     name?: string;
 }
 
 export const useUserStore = defineStore('user', () => {
-    const user: Ref<UserStore> = ref({
+    const userDate: Ref<UserStore> = ref({
         name: undefined,
-    });
-
-    const isAuth:ComputedRef<boolean> = computed(() => {
-        return (user.value.name !== undefined);
-    });
-
-    const userName:ComputedRef<string|undefined> = computed(() => {
-        return user.value.name;
     })
 
-    return {isAuth, userName};
+    const isAuth: ComputedRef<boolean> = computed(() => userDate.value.name !== undefined);
+
+    function setUserName (name: string|undefined) {
+        userDate.value.name = name;
+    }
+
+    function resetUser () {
+        setUserName(undefined);
+    }
+
+    return {isAuth, resetUser, setUserName, userDate};
 });

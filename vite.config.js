@@ -25,6 +25,7 @@ export default defineConfig({
         }),
         AutoImport({
             resolvers: [ElementPlusResolver()],
+            dts: true,
         }),
         Components({
             resolvers: [ElementPlusResolver()],
